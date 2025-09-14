@@ -50,7 +50,7 @@ afterEvaluate {
                 from(components["release"])
                 groupId = "com.arsipu.intentbuilder"
                 artifactId = "intent-builder"
-                version = "1.0.1"
+                version = "1.0.2"
             }
         }
     }
