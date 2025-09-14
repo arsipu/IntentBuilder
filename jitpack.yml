@@ -1,0 +1,3 @@
+# jitpack.yml
+install:
+  - ./gradlew :intentbuilder:publishToMavenLocal

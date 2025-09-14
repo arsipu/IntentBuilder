@@ -1,3 +1,5 @@
+import org.gradle.kotlin.dsl.release
+
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
@@ -5,6 +7,8 @@ plugins {
 }
 
 group = "com.github.arsipu"
+
+
 android {
     namespace = "com.arsipu.intentbuilder"
     compileSdk = 35
@@ -24,6 +28,11 @@ android {
                 "proguard-rules.pro"
             )
         }
+
+        debug {
+            isMinifyEnabled = false
+            // Debug-specific configurations can go here
+        }
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
@@ -33,6 +42,20 @@ android {
         jvmTarget = "11"
     }
 }
+
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("release") {
+                from(components["release"])
+                groupId = "com.arsipu.intentbuilder"
+                artifactId = "intent-builder"
+                version = "1.0.1"
+            }
+        }
+    }
+}
+
 
 dependencies {
 
