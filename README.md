@@ -1,4 +1,4 @@
-# IntentBuilder
+# IntentBuilder [![](https://jitpack.io/v/arsipu/IntentBuilder.svg)](https://jitpack.io/#arsipu/IntentBuilder)
 
 IntentBuilder is a simple and fluent utility for constructing Android `Intent` objects with various configurations and extras. It helps reduce boilerplate and makes intent creation more readable and maintainable.
 
@@ -9,7 +9,39 @@ IntentBuilder is a simple and fluent utility for constructing Android `Intent` o
 - Easy to use in both Kotlin and Java projects
 
 ## Installation
-Add the module as a dependency in your project. If using as a library module, add to your `settings.gradle.kts` and `build.gradle.kts` as needed.
+
+### Gradle
+Add it in your root settings.gradle at the end of repositories:
+```
+dependencyResolutionManagement {
+		repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+		repositories {
+			mavenCentral()
+			maven { url 'https://jitpack.io' }
+		}
+	}
+```
+
+### Gradle.kts
+Add it in your settings.gradle.kts at the end of repositories:
+```
+	dependencyResolutionManagement {
+		repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+		repositories {
+			mavenCentral()
+			maven { url = uri("https://jitpack.io") }
+		}
+	}
+```
+
+Add the dependency
+```
+dependencies {
+	        implementation("com.github.arsipu:IntentBuilder:Tag")
+	}
+```
+
+
 
 ## Usage Example
 
@@ -32,7 +64,7 @@ Intent intent = new IntentBuilder(context, TargetActivity.class)
     .setBooleanExtra("isAdmin", true)
     .build();
 
-IntentBuilder.goIntent(context: Context, intent: Intent)
+IntentBuilder.goIntent(context: Context, intent: Intent);
 ```
 
 
@@ -41,6 +73,8 @@ If you want to use only the `goIntent` method without building an Intent, you ca
 ```kotlin
 IntentBuilder.goIntent(context, TargetActivity::class.java)
 ```
+
+Java :
 ```java
 IntentBuilder.goIntent(context, TargetActivity.class);
 ```
