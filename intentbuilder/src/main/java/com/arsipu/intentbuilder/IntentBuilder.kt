@@ -272,6 +272,19 @@ class IntentBuilder() {
         }
 
 
+
+        /**
+         * Starts a new activity.
+         *
+         * @param from The activity from which to start the new activity.
+         * @param to The activity class to be started.
+         */
+        fun goIntent(from: Activity, to: Activity) {
+            val intent = Intent(from, to::class.java)
+            from.startActivity(intent)
+        }
+
+
         /**
          * Starts a new activity with the provided intent.
          *
@@ -281,6 +294,20 @@ class IntentBuilder() {
         fun goIntent(context: Context, intent: Intent) {
             context.startActivity(intent)
         }
+
+
+
+        /**
+         * Starts a new activity with the provided intent.
+         *
+         * @param activity The activity from which to start the new activity.
+         * @param intent The intent to be used to start the activity.
+         */
+        fun goIntent(activity: Activity, intent: Intent) {
+            activity.startActivity(intent)
+        }
+
+
     }
 
 }
